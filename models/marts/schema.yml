@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: fct_user_retention
+    description: "A fact table containing all user events joined with signup metadata for retention analysis."
+    columns:
+      - name: event_id
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+        tests:
+          - not_null
+      - name: days_since_signup
+        description: "Days between signup and the event. Should never be negative."
+        tests:
+          - accepted_values: { arguments: [0, 1000]} # Example check
