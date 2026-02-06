@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: vifstream_dataset  # This MUST match the first part of your {{ source() }}
+    database: poetic-maxim-486609-e5  # Replace with your actual GCP Project ID
+    schema: vifstream_dataset  # Replace with the actual BigQuery Dataset name where your CSVs are
+    tables:
+      - name: events        # This MUST match the second part of your {{ source() }}
+      - name: users
+      - name: subscriptions
