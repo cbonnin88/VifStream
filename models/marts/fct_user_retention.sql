@@ -17,6 +17,7 @@ SELECT
     e.user_id,
     e.event_name,
     e.event_at,
+    u.signup_date,
     u.plan_type,
     u.device,
     -- Strategic Produc Metric: How many days after joining did this happen
