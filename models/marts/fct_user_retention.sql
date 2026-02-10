@@ -9,7 +9,8 @@ users AS (
         user_id,
         signup_date,
         plan_type,
-        device
+        device,
+        region
     FROM {{source('vifstream_dataset','users')}}
 )
 SELECT  
@@ -20,6 +21,7 @@ SELECT
     u.signup_date,
     u.plan_type,
     u.device,
+    u.region,
     -- Strategic Produc Metric: How many days after joining did this happen
     DATE_DIFF(DATE(e.event_at),DATE(u.signup_date),DAY) AS days_since_signup
 FROM events AS e
